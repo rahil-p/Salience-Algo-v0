@@ -1,0 +1,7 @@
+selenium
+alpha_vantage
+pandas
+
+#must use with --no-index
+
+#lookout for:  numpy, scipy, scikit-learn, scrapy
