@@ -54,4 +54,3 @@ def rh_open(driver, stocks_array):
                                            stock.type + "/" +
                                            stock.symbol +
                                            "');")
-""
