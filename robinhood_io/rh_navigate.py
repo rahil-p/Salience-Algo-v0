@@ -7,7 +7,7 @@ from getpass import getpass
 
 import time
 
-timeout0 = 5 #seconds
+timeout0 = 4 #seconds
 timeout1 = 1 #seconds
 
 #-----
@@ -21,7 +21,7 @@ def rh_login(driver):
     driver.find_element_by_xpath("//button[@type='submit']").click()
 
     time.sleep(timeout0)
-    return
+    return u_input
 
 def auth_input():
     print('Enter your Robinhood credentials -')
