@@ -20,7 +20,7 @@ def entry(driver):
 def get_closing_time():
     now = datetime.now()
     closing_seconds = (timedelta(hours=24) -
-                       (now - now.replace(hour=16, minute=0, second=0))).total_seconds() % (24 * 3600)
+                       (now - now.replace(hour=16, minute=32, second=0))).total_seconds() % (24 * 3600)
 
     return now, closing_seconds
 
