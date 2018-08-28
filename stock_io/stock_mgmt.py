@@ -1,8 +1,3 @@
-import config
-from alpha_vantage.timeseries import TimeSeries
-from alpha_vantage.techindicators import TechIndicators
-from alpha_vantage.cryptocurrencies import CryptoCurrencies
-
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -12,8 +7,6 @@ import time
 
 timeout0 = 3 #seconds
 timeout1 = 1 #seconds
-
-ts = TimeSeries(key=config.api_key)
 
 #-----
 class Stock:
@@ -75,8 +68,3 @@ def stock_request(driver):
 
 
     return Stock(type, symbol, cap)
-
-#-----
-def get_stock_intraday(symbol):
-    data, meta_data = ts.get_intraday(symbol, interval='1min', outputsize='full')
-    return data, meta_data

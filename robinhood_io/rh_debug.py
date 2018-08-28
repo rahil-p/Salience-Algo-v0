@@ -4,5 +4,5 @@ def debug_mode():                                       #forces an AssertionErro
     except AssertionError:
         input('Press return to end the debugging session')
 
-def continue_mode():                                    #forces the driver to keep running (keeps user logged in)
+def force_error():                                      #forces the driver to keep running after the script ends
     raise AssertionError('continue mode - ignore traceback')

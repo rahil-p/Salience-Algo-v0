@@ -1,8 +1,10 @@
 import config
+
 import smtplib
 from string import Template
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from datetime import datetime
 
 ADDRESS = 'sentience@rahilpatel.io'
 
@@ -28,7 +30,7 @@ def pre_send(to_email, requests_array):
     msg = MIMEMultipart()
     msg['From'] = ADDRESS
     msg['To'] = to_email
-    msg['Subject'] = 'Sentience - Trading Confirmation'
+    msg['Subject'] = 'Sentience - Trading Confirmation (' + str(datetime.now().date()) + ')'
     msg.attach(MIMEText(message, 'plain'))
 
     s.send_message(msg)
@@ -46,7 +48,7 @@ def post_send(to_email, requests_array):
     msg = MIMEMultipart()
     msg['From'] = ADDRESS
     msg['To'] = to_email
-    msg['Subject'] = 'Sentience - Day End Summary'
+    msg['Subject'] = 'Sentience - Day End Summary (' + str(datetime.now().date()) + ')'
     msg.attach(MIMEText(message, 'plain'))
 
     s.send_message(msg)

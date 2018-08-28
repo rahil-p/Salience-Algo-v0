@@ -1,6 +1,7 @@
 selenium
 alpha_vantage
 pandas
+#add email libraries
 
 #must use with --no-index
 
