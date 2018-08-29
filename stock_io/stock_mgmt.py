@@ -29,6 +29,7 @@ class Stock:
 
 #-----
 def stock_requests(driver):
+    print('--Place your requests--')
     request_count = int(input('# of requests: '))
     requests = [stock_request(driver) for x in range(request_count)]
 

@@ -2,6 +2,8 @@ from robinhood_io.rh_navigate import rh_login, test_login, rh_open
 from robinhood_io.rh_debug import debug_mode                                #remove any if obsolete
 from stock_io.stock_mgmt import stock_requests                              #uses Stock class
 from forecast_io.forecast_preprocess import get_stock_intraday
+from forecast_io.forecast_plot import plotly_set_credentials, make_plot
+from forecast_io.forecast_nn import *                                       #must be changed to import specifics
 from communication_io.email_sends import pre_send, post_send
 from selenium import webdriver
 
@@ -70,7 +72,12 @@ def main():
 
     sa_requests = stock_requests(driver)                                            #request and store from user inputs
     rh_open(driver, sa_requests)                                                    #open each stock in a new tab
-    sa_data = {req.symbol:get_stock_intraday(req.symbol) for req in sa_requests}    #collect intraday data into a dict
+    #sa_data = {req.symbol:[get_stock_intraday(req.symbol),                          #collect intraday data into a dict
+    #                       make_plot(get_stock_intraday(req.symbol), req.symbol)] for req in sa_requests}
+    for request in sa_requests:
+        request.pre_data, _ = get_stock_intraday(request.symbol)
+        request.pre_plot = make_plot(request.pre_data, request.symbol)
+    print(sa_requests[0].pre_plot)
 
     #-----
     pre_email_sent = pre_open(email, sa_requests)
