@@ -89,13 +89,13 @@ if __name__ == '__main__':
 
 
 #create testing script for forecast + trading decisions & develop
+#visualize forecasts (noting transaction moments/summaries)
+
+#email at closing for summary
 
 #handle buy/sell functions
 #handle buy/sell confirmations
-#email 30 mins prior for confirmation; email at closing for summary; handle email TIMING
-
 #handle errors - check buying power
 
-#visualize forecasts (noting transaction moments/summaries)
 #handle requirements
 #include crypto support

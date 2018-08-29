@@ -25,13 +25,19 @@ def pre_send(to_email, requests_array):
     s = smtp()
 
     template = read_template('communication_io/pre_send.txt')
-    message = template.substitute()
+    requests_text_array = ["<li>{0} <a href='{3}'>{1}</a>, "
+                           "<i>capped at ${2:.2f}</i></li>".format('stock' if a.type == 'stocks' else 'crypto',
+                                                                   a.symbol,
+                                                                   a.cap,
+                                                                   a.pre_plot) for a in requests_array]
+    requests_text = '\n'.join(requests_text_array)
+    message = template.substitute(DATE=str(datetime.now().date()), REQUESTS=requests_text)
 
     msg = MIMEMultipart()
     msg['From'] = ADDRESS
     msg['To'] = to_email
     msg['Subject'] = 'Sentience - Trading Confirmation (' + str(datetime.now().date()) + ')'
-    msg.attach(MIMEText(message, 'plain'))
+    msg.attach(MIMEText(message, 'html'))
 
     s.send_message(msg)
     del msg
