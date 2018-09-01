@@ -1,8 +1,8 @@
 import config
 
 from alpha_vantage.timeseries import TimeSeries
-from alpha_vantage.techindicators import TechIndicators
-from alpha_vantage.cryptocurrencies import CryptoCurrencies
+from alpha_vantage.techindicators import TechIndicators                 #
+from alpha_vantage.cryptocurrencies import CryptoCurrencies             #
 
 import pandas as pd
 import numpy as np
