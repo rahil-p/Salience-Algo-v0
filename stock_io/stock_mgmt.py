@@ -30,7 +30,17 @@ class Stock:
 #-----
 def stock_requests(driver):
     print('--Place your requests--')
-    request_count = int(input('# of requests: '))
+
+    while True:
+        try:
+            request_count = int(input('# of requests: '))
+            if request_count <= 4:
+                break
+            else:
+                print("Invalid response - only 4 or fewer requests may be permitted")
+        except ValueError:
+            print("Invalid response - please return a numeric amount no greater than 4")
+
     requests = [stock_request(driver) for x in range(request_count)]
 
     driver.get('https://robinhood.com/')

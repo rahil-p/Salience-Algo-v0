@@ -34,18 +34,31 @@ def auth_input():
     return u_input, p_input
 
 def test_login(driver):
-    try:
-        loaded = EC.presence_of_element_located((By.ID, 'fb-root'))     #'fb-root' id exclusive to pages after sign-in
-        WebDriverWait(driver, timeout2).until(loaded)
-        print('--Login successful--')
-    except TimeoutException:
+    if driver.current_url == 'https://robinhood.com/login':
         retry = input("Login failure - type 'yes' to try again: ")
         if retry == 'yes':
             rh_login(driver)
+            test_login(driver)
             return
         else:
             print('Timeout in loading page after login')
             exit()
+    else:
+        print('--Login successful--')
+
+
+    # try:
+    #     loaded = EC.presence_of_element_located((By.ID, 'fb-root'))
+    #     WebDriverWait(driver, timeout2).until(loaded)
+    #     print('--Login successful--')
+    # except TimeoutException:
+    #     retry = input("Login failure - type 'yes' to try again: ")
+    #     if retry == 'yes':
+    #         rh_login(driver)
+    #         return
+    #     else:
+    #         print('Timeout in loading page after login')
+    #         exit()
 
 #-----
 

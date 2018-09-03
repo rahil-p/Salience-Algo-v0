@@ -29,7 +29,7 @@ def pre_send(to_email, requests_array):
                            "<i>capped at ${2:.2f}</i></li>".format('stock' if a.type == 'stocks' else 'crypto',
                                                                    a.symbol,
                                                                    a.cap,
-                                                                   a.pre_plot) for a in requests_array]
+                                                                   a.plot) for a in requests_array]
     requests_text = '\n'.join(requests_text_array)
     message = template.substitute(DATE=str(datetime.now().date()), REQUESTS=requests_text)
 

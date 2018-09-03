@@ -9,8 +9,8 @@ def build_nn(layers):
     nn = Sequential()
 
     nn.add(LSTM(input_dim=layers[0],
-                   output_dim=layers[1],
-                   return_sequences=True))
+                output_dim=layers[1],
+                return_sequences=True))
     nn.add(Dropout(.2))
 
     nn.add(LSTM(layers[2],
