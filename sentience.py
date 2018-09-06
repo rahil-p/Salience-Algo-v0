@@ -100,12 +100,11 @@ def at_close(to_email, requests_array):
 #-----
 def main():
     driver = webdriver.Chrome(os.getcwd() + '/robinhood_io/chromedriver')
-
     email = entry(driver)                                                           #login and test login
 
     sa_requests = stock_requests(driver)                                            #request and store from user inputs
     rh_open(driver, sa_requests)                                                    #open each stock in a new tab
-
+    
     set_stock_properties(sa_requests)
 
     #-----
