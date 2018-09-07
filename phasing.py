@@ -250,7 +250,7 @@ def main():
     train_outputs, test_outputs = split_tt(outputs)
     train_scalers, test_scalers = split_tt(output_price_scalers)
 
-    SINGLE-POINT REGRESSOR
+    # SINGLE-POINT REGRESSOR
     lstm_rnn = build_nn(train_inputs, layer_neurons=[482, 482, 482])
     lstm_rnn.fit(train_inputs, train_outputs,
                  epochs=25, batch_size=10, verbose=1,                           #turn off verbose
