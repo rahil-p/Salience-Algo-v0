@@ -2,14 +2,17 @@ import plotly
 import plotly.plotly as py
 import plotly.graph_objs as go
 
+import config
+
 import numpy as np
 from datetime import datetime
 
 #-----
 def plotly_set_credentials():
-    plotly.tools.set_credentials_file(username='sentience', api_key=config.plotly_api_key)
+    plotly.tools.set_credentials_file(username='salience', api_key=config.plotly_api_key)
 
 def make_plot(data, symbol):
+
     open_data = go.Scatter(x=data.index,
                            y=data['1. open'],
                            name='open',

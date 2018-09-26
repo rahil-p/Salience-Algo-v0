@@ -13,7 +13,7 @@ timeout2 = 10 #seconds
 
 #-----
 def rh_login(driver):
-    print('--Welcome to Sentience--')
+    print('--Welcome to Salience--')
     driver.get('https://robinhood.com/login')
 
     u_input, p_input = auth_input()
@@ -26,7 +26,7 @@ def rh_login(driver):
     return u_input
 
 def auth_input():
-    print('--Log in for Sentience--')
+    print('--Log in for Salience--')
     print('Enter your Robinhood credentials -')
     u_input = input('Email: ')
     p_input = getpass('Password: ')

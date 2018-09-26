@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime
 
-ADDRESS = 'sentience@rahilpatel.io'
+ADDRESS = 'salience@rahilpatel.io'
 
 def read_template(file):
     with open(file, 'r', encoding='utf-8') as template_file:
@@ -18,7 +18,7 @@ def smtp():
     s.ehlo()
     s.starttls()
     s.ehlo()
-    s.login(ADDRESS, config.sentience_pass)
+    s.login(ADDRESS, config.salience_pass)
     return s
 
 def pre_send(to_email, requests_array):
@@ -36,7 +36,7 @@ def pre_send(to_email, requests_array):
     msg = MIMEMultipart()
     msg['From'] = ADDRESS
     msg['To'] = to_email
-    msg['Subject'] = 'Sentience - Trading Confirmation (' + str(datetime.now().date()) + ')'
+    msg['Subject'] = 'Salience - Trading Confirmation (' + str(datetime.now().date()) + ')'
     msg.attach(MIMEText(message, 'html'))
 
     s.send_message(msg)
@@ -54,7 +54,7 @@ def post_send(to_email, requests_array):
     msg = MIMEMultipart()
     msg['From'] = ADDRESS
     msg['To'] = to_email
-    msg['Subject'] = 'Sentience - Day End Summary (' + str(datetime.now().date()) + ')'
+    msg['Subject'] = 'Salience - Day End Summary (' + str(datetime.now().date()) + ')'
     msg.attach(MIMEText(message, 'plain'))
 
     s.send_message(msg)

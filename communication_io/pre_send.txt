@@ -1,11 +1,11 @@
-<h1>Sentience Trading Confirmation</h1>
+<h1>Salience Trading Confirmation</h1>
 <h3><i>${DATE}</i></h3>
 
-Sentience will begin trading the following requests during the next available session of regular market hours.
+Salience will begin trading the following requests during the next available session of regular market hours.
 
 <br />
 <br />
-<i>Here are the requests you issued to Sentience:</i>
+<i>Here are the requests you issued to Salience:</i>
 
 <ul>
 ${REQUESTS}

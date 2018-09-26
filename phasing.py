@@ -153,7 +153,7 @@ def compile_nn(nn, optimizer, metrics):
 
 #-----
 def plotly_set_credentials():
-    plotly.tools.set_credentials_file(username='sentience', api_key=config.plotly_api_key)
+    plotly.tools.set_credentials_file(username='salience', api_key=config.plotly_api_key)
 
 def make_plot(data, symbol, results='none'):
     open_data = go.Scatter(x=data.index,

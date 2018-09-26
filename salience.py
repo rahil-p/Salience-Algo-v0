@@ -56,7 +56,7 @@ def pre_open(to_email, requests_array):
         if switch == 1:
             switch *= 0
             pre_email_sent = pre_send(to_email, requests_array)
-            print('--Sentience will execute at market open, 9:30am--')
+            print('--Salience will execute at market open, 9:30am--')
         else:
             pass
     return pre_email_sent
@@ -75,7 +75,7 @@ def during_hours(pre_email_sent, to_email, requests_array):
         #executes at the initiation of the loop (just once)
         if switch == 1:
             switch *= 0
-            print('--Sentience is now active--')
+            print('--Salience is now active--')
             update_stock_properties(requests_array)
 
         #executes at each new minute; ensures that alpha_vantage data is not requested more than once per minute
@@ -89,7 +89,7 @@ def during_hours(pre_email_sent, to_email, requests_array):
 def at_close(to_email, requests_array):
     _, closing_seconds = get_closing_time()
     if closing_seconds < 30:
-        print('--Sentience trading session has completed--')
+        print('--Salience trading session has completed--')
         post_send(to_email, requests_array)
 
 
@@ -104,7 +104,7 @@ def main():
 
     sa_requests = stock_requests(driver)                                            #request and store from user inputs
     rh_open(driver, sa_requests)                                                    #open each stock in a new tab
-    
+
     set_stock_properties(sa_requests)
 
     #-----
